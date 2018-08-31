@@ -12,17 +12,17 @@ package Antri;
 public class Main {
 
     public static void main(String[] args) {
-Pasien pasien = new Pasien("Ryan");
-Dokter dokter = new Dokter("Dokter");
-        
-        try {         
+        Pasien pasien = new Pasien("Ryan");
+        Dokter dokter = new Dokter("Dokter");
+
+        try {
             pasien.setAlamat("Jl.Affandi No 27");
             pasien.setTempatLahir("Yogyakarta");
             pasien.setTanggalLahirPasien(15);
             pasien.setBulanLahirPasien(5);
             pasien.setTahunLahirPasien(1999);
             pasien.setNoRekamMedis(pasien.AturNomorRekamMedis());
-            
+
             dokter.setAlamat("Jl.Merah Putih no 17");
             dokter.setTempatLahir("Jakarta");
             dokter.setTanggalLahirDok(30);
@@ -33,21 +33,21 @@ Dokter dokter = new Dokter("Dokter");
             ex.printStackTrace();
         }
         System.out.println("Pasien");
-            System.out.println(pasien.getNoRekamMedis());
-            System.out.println(pasien.getNamaPasien());
-            System.out.println(pasien.getAlamat());
-            System.out.println(pasien.getTempatLahir());
-            System.out.println(pasien.getTanggalLahirPasien());
-            System.out.println(pasien.getBulanLahirPasien());
-            System.out.println(pasien.getTahunLahirPasien());
-            System.out.println("");
-            System.out.println("Dokter");
-            System.out.println(dokter.getNama());
-            System.out.println(dokter.getAlamat());
-            System.out.println(dokter.getTempatLahir());
-            System.out.println(dokter.getTanggalLahirDok());
-            System.out.println(dokter.getBulanLahirDok());
-            System.out.println(dokter.getTahunLahirDok());
-            System.out.println(dokter.getNomorPegawai());
+        System.out.println(pasien.getNoRekamMedis());
+        System.out.println(pasien.getNamaPasien());
+        System.out.println(pasien.getAlamat());
+        System.out.println(pasien.getTempatLahir());
+        System.out.println(pasien.getTanggalLahirPasien());
+        System.out.println(pasien.getBulanLahirPasien());
+        System.out.println(pasien.getTahunLahirPasien());
+        System.out.println("");
+        System.out.println("Dokter");
+        System.out.println(dokter.getNama());
+        System.out.println(dokter.getAlamat());
+        System.out.println(dokter.getTempatLahir());
+        System.out.println(dokter.getTanggalLahirDok());
+        System.out.println(dokter.getBulanLahirDok());
+        System.out.println(dokter.getTahunLahirDok());
+        System.out.println(dokter.getNomorPegawai());
     }
 }

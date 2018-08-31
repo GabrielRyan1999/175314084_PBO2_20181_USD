@@ -15,7 +15,6 @@ import java.util.Date;
 public class Pasien {
 
     private String namaPasien;
-
     private String alamat;
     private String tempatLahir;
     private String noRekamMedis;
