@@ -58,11 +58,13 @@ public class AntrianPasien {
     public void setDaftarPasien(Pasien[] daftarPasien) {
         this.daftarPasien = daftarPasien;
     }
-/**
- * Fungsi ini digunakan untuk mendaftar pasien baru di nomor antrian
- * @param pasien
- * @throws Exception 
- */
+
+    /**
+     * Fungsi ini digunakan untuk mendaftar pasien baru di nomor antrian
+     *
+     * @param pasien
+     * @throws Exception
+     */
     public void Mendaftar(Pasien pasien) throws Exception {
         //nomor antrian dibandingkan dengan jumlah maksimal pasien yang dilayani
         if (nomorAntrian < JUMLAH_MAKSIMAL_PASIEN) {
@@ -74,7 +76,13 @@ public class AntrianPasien {
         }
 
     }
-    public Pasien panggilPasien(int nomorAntrian){
-        return null;
+
+    public Pasien panggilPasien(int nomorAntrian) throws Exception {
+        if (nomorAntrian < JUMLAH_MAKSIMAL_PASIEN) {
+            return daftarPasien[nomorAntrian];
+        } else {
+            throw new Exception("Antrian Habis");
+        }
+
     }
 }
