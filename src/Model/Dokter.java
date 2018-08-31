@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Antri;
+package Model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -119,4 +119,5 @@ public class Dokter {
         SimpleDateFormat ft = new SimpleDateFormat("yyyMMdd");
         System.out.println(ft.format(tgl) + nama.substring(0, 3));
     }
+  
 }
