@@ -74,7 +74,7 @@ public class AntrianPasien {
         }
 
     }
-    public Pasien panggilPasien(int nomor){
+    public Pasien panggilPasien(int nomorAntrian){
         return null;
     }
 }
