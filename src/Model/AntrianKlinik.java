@@ -9,7 +9,7 @@ package Model;
  *
  * @author jarkom
  */
-public class AntrianPasien {
+public class AntrianKlinik {
 
     private int nomorAntrian = 0;
     private final int JUMLAH_MAKSIMAL_PASIEN = 50;
