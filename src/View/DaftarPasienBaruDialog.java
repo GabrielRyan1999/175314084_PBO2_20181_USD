@@ -20,6 +20,7 @@ public class DaftarPasienBaruDialog extends JDialog {
     private JTextField textFieldNama;
     private JTextField textFieldAlamat;
     private JButton buttonSave;
+    
 
     public DaftarPasienBaruDialog() {
         this.setTitle("Form Daftar Pasien Baru");

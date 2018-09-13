@@ -16,7 +16,7 @@ public class Main {
         Dokter dokter = new Dokter("Dokter");
 
         try {
-            pasien.setAlamat("Jl.Affandi No 27");
+            pasien.setAlamatPasien("Jl.Affandi No 27");
             pasien.setTempatLahir("Yogyakarta");
             pasien.setTanggalLahirPasien(15);
             pasien.setBulanLahirPasien(5);
@@ -35,7 +35,7 @@ public class Main {
         System.out.println("Pasien");
         System.out.println(pasien.getNoRekamMedis());
         System.out.println(pasien.getNamaPasien());
-        System.out.println(pasien.getAlamat());
+        System.out.println(pasien.getAlamatPasien());
         System.out.println(pasien.getTempatLahir());
         System.out.println(pasien.getTanggalLahirPasien());
         System.out.println(pasien.getBulanLahirPasien());
