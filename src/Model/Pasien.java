@@ -15,12 +15,14 @@ import java.util.Date;
 public class Pasien {
 
    private String namaPasien;
-    private String alamat;
+    private String alamatPasien;
     private String tempatLahir;
     private String noRekamMedis;
     private int tanggalLahirPasien;
     private int bulanLahirPasien;
     private int tahunLahirPasien;
+    private String nik;
+    private Pasien daftarPasienKlinik[];
 
     /**
      * membuat constuctor Pasien dengan parameter String namaPasien
@@ -59,20 +61,20 @@ public class Pasien {
      *
      * @return
      */
-    public String getAlamat() {
-        //pengembalian nilai dari alamat
-        return alamat;
+    public String getAlamatPasien() {
+        //pengembalian nilai dari alamatPasien
+        return alamatPasien;
     }
 
     /**
      * membuat method public void dengan nama setAlamat()
      *
-     * @param alamat
+     * @param alamatPasien
      */
-    public void setAlamat(String alamat) {
-        //alamat dari variabel global sama dengan alamat dari variabel lokal
+    public void setAlamatPasien(String alamatPasien) {
+        //alamat dari variabel global sama dengan alamatPasien dari variabel lokal
 
-        this.alamat = alamat;
+        this.alamatPasien = alamatPasien;
     }
 
     /**
@@ -167,12 +169,38 @@ public class Pasien {
         return bulanLahirPasien;
     }
 
+    /**membuat method public String dengan nama getNik()
+     * 
+     * @return 
+     */
+    public String getNik() {
+        //nilai variabel nik samadengan variabel noRekamMedis
+        nik = noRekamMedis;
+        //pengembalian nilai dari nik
+        return nik;
+    }
+
+   
+    public Pasien[] getDaftarPasienKlinik() {
+        //pengembalian nilai dari nik
+        return daftarPasienKlinik;
+    }
+
+    public void setDaftarPasienKlinik(Pasien[] daftarPasienKlinik) {
+         //daftarPasienKlinik dari variabel global sama dengan daftarPasienKlinik dari variabel lokal
+        this.daftarPasienKlinik = daftarPasienKlinik;
+    }
+
+    
+    
     /**
      * membuat method public void dengan nama setBulanLahirPasien()
      *
      * @param bulanLahirPasien
      * @throws Exception
      */
+    
+    
     public void setBulanLahirPasien(int bulanLahirPasien) throws Exception {
         // membuat kondisi if bulanLahirPasien lebih dari 0
         if (bulanLahirPasien > 0) {
