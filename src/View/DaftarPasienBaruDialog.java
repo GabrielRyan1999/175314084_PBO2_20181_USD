@@ -20,8 +20,10 @@ import javax.swing.JTextField;
 public class DaftarPasienBaruDialog extends JDialog implements ActionListener {   
     private JLabel labelNama;
     private JLabel labelAlamat; 
+    private JLabel labelNik; 
     private JTextField namaText;
     private JTextField alamatText;
+    private JTextField nikText;
     private JButton tambahButton;
     
 
@@ -36,22 +38,29 @@ public class DaftarPasienBaruDialog extends JDialog implements ActionListener {
         labelNama = new JLabel("Nama");
         labelNama.setBounds(10, 10, 70, 25);
         labelAlamat = new JLabel("Alamat");
-        labelAlamat.setBounds(10, 60, 70, 25);
+        labelAlamat.setBounds(10, 40, 70, 25);
+        
+        labelNik = new JLabel("Nik");
+        labelNik.setBounds(10, 70, 70, 25);
         
         namaText = new JTextField();
         namaText.setBounds(90, 10, 170, 25);
         alamatText = new JTextField();
-        alamatText.setBounds(90, 60, 170, 25);
+        alamatText.setBounds(90, 40, 170, 25);
+        
+        nikText = new JTextField();
+        nikText.setBounds(90, 70, 170, 25);
         
         tambahButton = new JButton("Save");
-        tambahButton.setBounds(110, 110, 80, 25);
+        tambahButton.setBounds(110, 130, 80, 25);
         
        
         this.add(labelNama);
         this.add(labelAlamat);
-      
+        this.add(labelNik);
         this.add(namaText);
         this.add(alamatText);
+        this.add(nikText);
         this.add(tambahButton);
     }
 
