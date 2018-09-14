@@ -16,12 +16,12 @@ public class Main {
         Dokter dokter = new Dokter("Dokter");
 
         try {
-            pasien.setAlamatPasien("Jl.Affandi No 27");
+            pasien.setAlamat("Jl.Affandi No 27");
             pasien.setTempatLahir("Yogyakarta");
             pasien.setTanggalLahirPasien(15);
             pasien.setBulanLahirPasien(5);
             pasien.setTahunLahirPasien(1999);
-            pasien.setNoRekamMedis(pasien.AturNomorRekamMedis());
+            pasien.setNoRM(pasien.AturNomorRekamMedis());
 
             dokter.setAlamat("Jl.Merah Putih no 17");
             dokter.setTempatLahir("Jakarta");
@@ -33,9 +33,9 @@ public class Main {
             ex.printStackTrace();
         }
         System.out.println("Pasien");
-        System.out.println(pasien.getNoRekamMedis());
-        System.out.println(pasien.getNamaPasien());
-        System.out.println(pasien.getAlamatPasien());
+        System.out.println(pasien.getNoRM());
+        System.out.println(pasien.getNama());
+        System.out.println(pasien.getAlamat());
         System.out.println(pasien.getTempatLahir());
         System.out.println(pasien.getTanggalLahirPasien());
         System.out.println(pasien.getBulanLahirPasien());

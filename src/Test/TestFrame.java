@@ -12,9 +12,10 @@ import View.MainFrame;
  * @author jarkom
  */
 public class TestFrame {
+
     public static void main(String[] args) {
         MainFrame frame = new MainFrame();
-        frame.setSize(300, 150);
+        frame.setSize(500, 500);
         frame.setVisible(true);
     }
 }

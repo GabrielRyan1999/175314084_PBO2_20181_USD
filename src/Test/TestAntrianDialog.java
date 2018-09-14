@@ -12,9 +12,10 @@ import View.DaftarAntrianDialog;
  * @author jarkom
  */
 public class TestAntrianDialog {
+
     public static void main(String[] args) {
         DaftarAntrianDialog antri = new DaftarAntrianDialog();
-        antri.setSize(500,500);
+        antri.setSize(500, 500);
         antri.setVisible(true);
     }
 }

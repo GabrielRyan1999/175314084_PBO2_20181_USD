@@ -6,6 +6,7 @@
 package Model;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -14,25 +15,38 @@ import java.util.Date;
  */
 public class Pasien {
 
-   private String namaPasien;
-    private String alamatPasien;
+    private String Nama;
+    private String Alamat;
     private String tempatLahir;
-    private String noRekamMedis;
+    private String NoRM;
     private int tanggalLahirPasien;
     private int bulanLahirPasien;
     private int tahunLahirPasien;
     private String nik;
-    private Pasien daftarPasienKlinik[];
+
+    public Pasien(String namaPasien, String alamatPasien, String tempatLahir, int tanggalLahirPasien, int bulanLahirPasien, int tahunLahirPasien, String nik) {
+        this.Nama = namaPasien;
+        this.Alamat = alamatPasien;
+        this.tempatLahir = tempatLahir;
+        this.tanggalLahirPasien = tanggalLahirPasien;
+        this.bulanLahirPasien = bulanLahirPasien;
+        this.tahunLahirPasien = tahunLahirPasien;
+        this.nik = nik;
+    }
 
     /**
-     * membuat constuctor Pasien dengan parameter String namaPasien
+     * membuat constuctor Pasien dengan parameter String Nama
      *
      * @param namaPasien
      */
     public Pasien(String namaPasien) {
-        //namaPasien dari variabel global sama dengan namaPasien dari variabel lokal
-        this.namaPasien = namaPasien;
+        //namaPasien dari variabel global sama dengan Nama dari variabel lokal
+        this.Nama = namaPasien;
 
+    }
+
+    public Pasien() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -40,20 +54,20 @@ public class Pasien {
      *
      * @return
      */
-    public String getNamaPasien() {
-        //pengembalian nilai dari namaPasien
-        return namaPasien;
+    public String getNama() {
+        //pengembalian nilai dari Nama
+        return Nama;
     }
 
     /**
      * membuat method public void dengan nama setNamaPasien()
      *
-     * @param namaPasien
+     * @param Nama
      */
-    public void setNamaPasien(String namaPasien) {
-        //namaPasien dari variabel global sama dengan namaPasien dari variabel lokal
+    public void setNama(String Nama) {
+        //namaPasien dari variabel global sama dengan Nama dari variabel lokal
 
-        this.namaPasien = namaPasien;
+        this.Nama = Nama;
     }
 
     /**
@@ -61,20 +75,20 @@ public class Pasien {
      *
      * @return
      */
-    public String getAlamatPasien() {
-        //pengembalian nilai dari alamatPasien
-        return alamatPasien;
+    public String getAlamat() {
+        //pengembalian nilai dari Alamat
+        return Alamat;
     }
 
     /**
      * membuat method public void dengan nama setAlamat()
      *
-     * @param alamatPasien
+     * @param Alamat
      */
-    public void setAlamatPasien(String alamatPasien) {
-        //alamat dari variabel global sama dengan alamatPasien dari variabel lokal
+    public void setAlamat(String Alamat) {
+        //alamat dari variabel global sama dengan Alamat dari variabel lokal
 
-        this.alamatPasien = alamatPasien;
+        this.Alamat = Alamat;
     }
 
     /**
@@ -103,22 +117,22 @@ public class Pasien {
      *
      * @return
      */
-    public String getNoRekamMedis() {
-        //pengembalian nilai dari noRekamMedis
-        return noRekamMedis;
+    public String getNoRM() {
+        //pengembalian nilai dari NoRM
+        return NoRM;
     }
 
     /**
      * membuat method public void dengan nama setNoRekamMedis()
      *
-     * @param noRekamMedis
+     * @param NoRM
      * @throws Exception
      */
-    public void setNoRekamMedis(String noRekamMedis) throws Exception {
-        //membuat kondisi if noRekamMedis.length() >= 6
-        if (noRekamMedis.length() >= 6) {
-            // noRekamMedis dari variabel global sama dengan noRekamMedis dari variabel lokal
-            this.noRekamMedis = noRekamMedis;
+    public void setNoRM(String NoRM) throws Exception {
+        //membuat kondisi if NoRM.length() >= 6
+        if (NoRM.length() >= 6) {
+            // NoRM dari variabel global sama dengan NoRM dari variabel lokal
+            this.NoRM = NoRM;
         } else {
             //jika tidak sesuai akan menampilkan "nomor rekam medis salah"
             throw new Exception("nomor rekam medis salah");
@@ -169,38 +183,24 @@ public class Pasien {
         return bulanLahirPasien;
     }
 
-    /**membuat method public String dengan nama getNik()
-     * 
-     * @return 
+    /**
+     * membuat method public String dengan nama getNik()
+     *
+     * @return
      */
     public String getNik() {
-        //nilai variabel nik samadengan variabel noRekamMedis
-        nik = noRekamMedis;
+        //nilai variabel nik samadengan variabel NoRM
+        nik = NoRM;
         //pengembalian nilai dari nik
         return nik;
     }
 
-   
-    public Pasien[] getDaftarPasienKlinik() {
-        //pengembalian nilai dari nik
-        return daftarPasienKlinik;
-    }
-
-    public void setDaftarPasienKlinik(Pasien[] daftarPasienKlinik) {
-         //daftarPasienKlinik dari variabel global sama dengan daftarPasienKlinik dari variabel lokal
-        this.daftarPasienKlinik = daftarPasienKlinik;
-    }
-
-    
-    
     /**
      * membuat method public void dengan nama setBulanLahirPasien()
      *
      * @param bulanLahirPasien
      * @throws Exception
      */
-    
-    
     public void setBulanLahirPasien(int bulanLahirPasien) throws Exception {
         // membuat kondisi if bulanLahirPasien lebih dari 0
         if (bulanLahirPasien > 0) {
@@ -258,9 +258,20 @@ public class Pasien {
         Date tgl = new Date();
         //membuat objek ft bertipe SimpleDateFormat
         SimpleDateFormat ft = new SimpleDateFormat("yyyMMdd");
-        //nilai dari nomorRekamMedis sama dengan tgl ditambah 3 huruf pertama dari namaPasien
-        nomorRekamMedis = ft.format(tgl) + namaPasien.substring(0, 3);
+        //nilai dari nomorRekamMedis sama dengan tgl ditambah 3 huruf pertama dari Nama
+        nomorRekamMedis = ft.format(tgl) + Nama.substring(0, 3);
         //pengembalian nilai nomorRekamMedis
         return nomorRekamMedis;
+    }
+
+    public static ArrayList<Pasien> daftarPasienKlinik
+            = new ArrayList<Pasien>();
+
+    public static void tambahPasienBaru(Pasien Pasien) {
+
+    }
+
+    public static Pasien cariPasien(String NoRM) {
+        return null;
     }
 }

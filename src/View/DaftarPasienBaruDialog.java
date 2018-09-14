@@ -5,6 +5,9 @@
  */
 package View;
 
+import Model.Pasien;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -14,12 +17,12 @@ import javax.swing.JTextField;
  *
  * @author jarkom
  */
-public class DaftarPasienBaruDialog extends JDialog {   
+public class DaftarPasienBaruDialog extends JDialog implements ActionListener {   
     private JLabel labelNama;
     private JLabel labelAlamat; 
-    private JTextField textFieldNama;
-    private JTextField textFieldAlamat;
-    private JButton buttonSave;
+    private JTextField namaText;
+    private JTextField alamatText;
+    private JButton tambahButton;
     
 
     public DaftarPasienBaruDialog() {
@@ -35,20 +38,31 @@ public class DaftarPasienBaruDialog extends JDialog {
         labelAlamat = new JLabel("Alamat");
         labelAlamat.setBounds(10, 60, 70, 25);
         
-        textFieldNama = new JTextField();
-        textFieldNama.setBounds(90, 10, 170, 25);
-        textFieldAlamat = new JTextField();
-        textFieldAlamat.setBounds(90, 60, 170, 25);
+        namaText = new JTextField();
+        namaText.setBounds(90, 10, 170, 25);
+        alamatText = new JTextField();
+        alamatText.setBounds(90, 60, 170, 25);
         
-        buttonSave = new JButton("Save");
-        buttonSave.setBounds(110, 110, 80, 25);
+        tambahButton = new JButton("Save");
+        tambahButton.setBounds(110, 110, 80, 25);
         
        
         this.add(labelNama);
         this.add(labelAlamat);
       
-        this.add(textFieldNama);
-        this.add(textFieldAlamat);
-        this.add(buttonSave);
+        this.add(namaText);
+        this.add(alamatText);
+        this.add(tambahButton);
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == tambahButton) {
+                Pasien baru = new Pasien();
+                baru.setNama(namaText.getText());
+                baru.setAlamat(alamatText.getText());
+
+                Pasien.tambahPasienBaru(baru);
+    }
+}
 }
