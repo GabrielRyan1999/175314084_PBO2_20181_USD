@@ -23,6 +23,7 @@ public class Pasien {
     private int bulanLahirPasien;
     private int tahunLahirPasien;
     private String nik;
+    public static ArrayList<Pasien> daftarPasienKlinik = new ArrayList<Pasien>();
 
     public Pasien(String namaPasien, String alamatPasien, String tempatLahir, int tanggalLahirPasien, int bulanLahirPasien, int tahunLahirPasien, String nik) {
         this.Nama = namaPasien;
@@ -32,6 +33,7 @@ public class Pasien {
         this.bulanLahirPasien = bulanLahirPasien;
         this.tahunLahirPasien = tahunLahirPasien;
         this.nik = nik;
+        this.NoRM = this.nik;
     }
 
     /**
@@ -46,7 +48,6 @@ public class Pasien {
     }
 
     public Pasien() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -66,7 +67,6 @@ public class Pasien {
      */
     public void setNama(String Nama) {
         //namaPasien dari variabel global sama dengan Nama dari variabel lokal
-
         this.Nama = Nama;
     }
 
@@ -87,7 +87,6 @@ public class Pasien {
      */
     public void setAlamat(String Alamat) {
         //alamat dari variabel global sama dengan Alamat dari variabel lokal
-
         this.Alamat = Alamat;
     }
 
@@ -108,7 +107,6 @@ public class Pasien {
      */
     public void setTempatLahir(String tempatLahir) {
         //tempatLahir dari variabel global sama dengan tempatLahir dari variabel lokal
-
         this.tempatLahir = tempatLahir;
     }
 
@@ -264,14 +262,16 @@ public class Pasien {
         return nomorRekamMedis;
     }
 
-    public static ArrayList<Pasien> daftarPasienKlinik
-            = new ArrayList<Pasien>();
-
-    public static void tambahPasienBaru(Pasien Pasien) {
-
+    public static void tambahPasienBaru(Pasien pasien) {
+        daftarPasienKlinik.add(pasien);
     }
 
     public static Pasien cariPasien(String NoRM) {
+        for (int i = 0; i < daftarPasienKlinik.size(); i++) {
+            if (NoRM.equals(daftarPasienKlinik.get(i).getNoRM())) {
+                return daftarPasienKlinik.get(i);
+            } else return null;
+        }
         return null;
     }
 }

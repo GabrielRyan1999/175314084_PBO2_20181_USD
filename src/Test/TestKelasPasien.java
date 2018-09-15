@@ -41,7 +41,8 @@ public class TestKelasPasien {
             System.out.println("Nama : " + Pasien.daftarPasienKlinik.get(i).getNama());
         }
 
-        Pasien cari = Pasien.cariPasien("19990110");
+        Pasien cari;
+        cari = Pasien.cariPasien("19990110");
         System.out.println("Nama Hasil Pencarian = " + cari.getNama());
     }
 }

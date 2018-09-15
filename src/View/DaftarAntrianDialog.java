@@ -5,17 +5,10 @@
  */
 package View;
 
-import Model.Pasien;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Calendar;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import Model.*;
+import java.awt.event.*;
+import java.util.logging.*;
+import javax.swing.*;
 
 /**
  *
@@ -39,6 +32,7 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
     private JButton tambahButton;
     private JRadioButton lelakiButton;
     private JRadioButton perempuanButton;
+    private ButtonGroup gender;
 
     /**
      * membuat constuctor kosong dengan nama DaftarAntrianDialog()
@@ -111,13 +105,14 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
         tambahButton = new JButton("Save");
         //mengatur ukuran buttonSave dengan ukuran 190,400,100,30
         tambahButton.setBounds(190, 400, 100, 30);
+        tambahButton.addActionListener(this);
 
         this.add(labelNoRM);
         this.add(labelNama);
         this.add(labelJenisKelamin);
         this.add(labelTanggalLahir);
         this.add(labelAlamat);
-
+        
         this.add(boxTanggal);
         boxTanggal.addItem(1);
         boxTanggal.addItem(2);
@@ -140,6 +135,7 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
         boxTahun.addItem(1994);
         boxTahun.addItem(1995);
         boxTahun.addItem(1996);
+
         this.add(textFieldNoRM);
         this.add(namaText);
         this.add(lelakiButton);
@@ -147,19 +143,25 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
         this.add(alamatText);
         this.add(tambahButton);
 
-     
-    
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        AntrianPasien ant = new AntrianPasien();
         if (e.getSource() == tambahButton) {
+            try {
                 Pasien baru = new Pasien();
                 baru.setNama(namaText.getText());
                 baru.setAlamat(alamatText.getText());
+                baru.setNoRM(textFieldNoRM.getText());
+                ant.Mendaftar(baru);
+                String txt = baru.getNoRM()+" "+baru.getNama()+" "+baru.getAlamat();
+                System.out.println(baru.getNoRM());
+                JOptionPane.showMessageDialog(null, "Sudah Berhasil mendaftarkan pasien\n"+txt);
+            } catch (Exception ex) {
+                Logger.getLogger(DaftarAntrianDialog.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
-                Pasien.tambahPasienBaru(baru);
-
+        }
     }
-    }}
-
+}
