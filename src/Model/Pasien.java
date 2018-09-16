@@ -270,7 +270,7 @@ public class Pasien {
         for (int i = 0; i < daftarPasienKlinik.size(); i++) {
             if (NoRM.equals(daftarPasienKlinik.get(i).getNoRM())) {
                 return daftarPasienKlinik.get(i);
-            } else return null;
+            } 
         }
         return null;
     }
