@@ -5,13 +5,16 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author jarkom
  */
 public class Klinik {
+    public static ArrayList<Klinik>daftarKlinik = new ArrayList<Klinik>();
     private String idKlinik;
-    private String nama;
+    private String namaKlinik;
 
     /**
      * membuat constuctor Klinik dengan parameter String idKlinik, String Nama
@@ -22,7 +25,7 @@ public class Klinik {
          //idKlinik dari variabel global sama dengan idKlinik dari variabel lokal
         this.idKlinik = idKlinik;
          //nama dari variabel global sama dengan nama dari variabel lokal
-        this.nama = nama;
+        this.namaKlinik = nama;
     }
     
 /**
@@ -45,17 +48,29 @@ public class Klinik {
  * membuat method public int dengan nama getNama
  * @return 
  */
-    public String getNama() {
+    public String getNamaKlinik() {
         //pengembalian nilai dari nama
-        return nama;
+        return namaKlinik;
     }
 /**
  * membuat method public void dengan nama setNama()
- * @param nama 
+ * @param namaKlinik 
  */
-    public void setNama(String nama) {
+    public void setNamaKlinik(String namaKlinik) {
          //nama dari variabel global sama dengan nama dari variabel lokal
-        this.nama = nama;
+        this.namaKlinik = namaKlinik;
     }
     
+    public static void tambahKlinik(Klinik klinik){
+        daftarKlinik.add(klinik);
+    }
+    
+    public static Klinik cariKlinik(String namaKlinik){
+        for (int i = 0; i < daftarKlinik.size(); i++) {
+            if (daftarKlinik.get(i).getNamaKlinik().equalsIgnoreCase(namaKlinik)) {
+                
+            }
+        }
+        return null;
+    }
 }

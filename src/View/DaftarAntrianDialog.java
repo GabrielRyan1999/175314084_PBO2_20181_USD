@@ -147,7 +147,7 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        AntrianPasien ant = new AntrianPasien();
+        AntrianKlinik ant = new AntrianKlinik();
         if (e.getSource() == tambahButton) {
             try {
                 Pasien baru = new Pasien();

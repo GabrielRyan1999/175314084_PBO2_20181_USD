@@ -11,15 +11,25 @@ import java.util.ArrayList;
  *
  * @author jarkom
  */
-public class AntrianPasien {
+public class AntrianKlinik {
 
     private int nomorAntrian = 0;
-    private final int JUMLAH_MAKSIMAL_PASIEN = 50;
     private int tanggalAntrian;
     private int bulanAntrian;
     private int tahunAntrian;
     private Klinik klinik;
-    private ArrayList<Pasien> daftarPasienKlinik = new ArrayList<Pasien>();
+    private ArrayList<Pasien> daftarPasienAntri = new ArrayList<Pasien>();
+    public static ArrayList<AntrianKlinik> daftarAntrian = new ArrayList<AntrianKlinik>();
+
+    public AntrianKlinik() {
+    }
+
+    public AntrianKlinik(int tanggalAntrian, int bulanAntrian, int tahunAntrian, Klinik klinik) {
+        this.tanggalAntrian = tanggalAntrian;
+        this.bulanAntrian = bulanAntrian;
+        this.tahunAntrian = tahunAntrian;
+        this.klinik = klinik;
+    }
 
     /**
      * membuat method public int dengan nama getTanggalAntrian
@@ -101,6 +111,14 @@ public class AntrianPasien {
         this.klinik = klinik;
     }
 
+    public String toString() {
+        return String.valueOf(tahunAntrian)
+                + String.valueOf(bulanAntrian)
+                + String.valueOf(tanggalAntrian)
+                + klinik.getIdKlinik()
+                + klinik.getNamaKlinik();
+    }
+
     /**
      * membuat method public int dengan nama getNomorAntrian
      *
@@ -126,39 +144,63 @@ public class AntrianPasien {
      *
      * @return
      */
-    public ArrayList<Pasien> getDaftarPasienKlinik() {
+    public ArrayList<Pasien> getDaftarPasienAntri() {
         //pengembalian nilai dari daftarPasienKlinik
-        return daftarPasienKlinik;
+        return daftarPasienAntri;
     }
 
     /**
      * Fungsi ini digunakan untuk mendaftar pasien baru di nomor antrian
      *
      * @param pasien
-     * @throws Exception
+     *
      */
     public void Mendaftar(Pasien pasien) {
         //membandingkan nomorAntrian dengan jumlah maksimal pasien yang dilayani
-        if (daftarPasienKlinik.size() < JUMLAH_MAKSIMAL_PASIEN) {
-            daftarPasienKlinik.add(pasien);
-        }
-
+        daftarPasienAntri.add(pasien);
     }
 
-    /**
-     * fungsi ini digunakan untuk memanggil Pasien sampai habis
-     *
-     * @param nomorAntrian
-     * @return
-     * @throws Exception
-     */
-//    public Pasien panggilPasien(int nomorAntrian) throws Exception {
-//        //membandingkan nomorAntrian dengan jumlah maksimal pasien yang dilayani
-//        if (nomorAntrian < JUMLAH_MAKSIMAL_PASIEN) {
-//            return daftarPasienKlinik[nomorAntrian];
-//        } else {
-//            throw new Exception("Antrian Habis");
-//        }
-//
-//    }
+    public void daftarPasien(Pasien pasien, int tanggalAntrian, int bulanAntrian, int tahunAntrian, Klinik klinik) {
+
+    }
+    
+
+    public Pasien cariPasien(String NoRM, int tanggalAntrian, int bulanAntrian, int tahunAntrian) {
+        for (int i = 0; i < daftarPasienAntri.size(); i++) {
+            if (NoRM.equals(daftarPasienAntri.get(i).getNoRM())) {
+                return daftarPasienAntri.get(i);
+            }
+        }
+        return null;
+    }
+
+    public static void buatAntrian(int tanggalAntrian, int bulanAntrian, int tahunAntrian, Klinik klinik) {
+        AntrianKlinik antrian = new AntrianKlinik();
+        antrian.setTanggalAntrian(tanggalAntrian);
+        antrian.setBulanAntrian(bulanAntrian);
+        antrian.setTahunAntrian(tahunAntrian);
+        antrian.setKlinik(klinik);
+        if (cariAntrian(tanggalAntrian, bulanAntrian, tahunAntrian, klinik) == null) {
+           //tambah list antiran
+            daftarAntrian.add(antrian);
+        } else {
+            System.out.println("Antrian Sudah Terpakai");
+        }
+
+        
+    }
+
+    public static AntrianKlinik cariAntrian(int tanggalAntrian, int bulanAntrian, int tahunAntrian, Klinik klinik) {
+        for (int i = 0; i < daftarAntrian.size(); i++) {
+            if (daftarAntrian.get(i).getTanggalAntrian() == tanggalAntrian
+                    && daftarAntrian.get(i).getBulanAntrian() == bulanAntrian
+                    && daftarAntrian.get(i).getTahunAntrian() == tahunAntrian
+                    && daftarAntrian.get(i).getKlinik().getIdKlinik().equalsIgnoreCase(klinik.getIdKlinik())
+                    && daftarAntrian.get(i).getKlinik().getNamaKlinik().equalsIgnoreCase(klinik.getNamaKlinik())) {
+                return daftarAntrian.get(i);
+            }
+
+        }
+        return null;
+    }
 }
