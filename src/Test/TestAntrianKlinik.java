@@ -7,6 +7,7 @@ package Test;
 
 import Model.AntrianKlinik;
 import Model.Klinik;
+import Model.Pasien;
 
 /**
  *
@@ -20,8 +21,21 @@ public class TestAntrianKlinik {
         AntrianKlinik.buatAntrian(21, 9, 2018, new Klinik("002", "saraf"));
         AntrianKlinik.buatAntrian(21, 9, 2018, new Klinik("001", "anak"));
 
-        for (int i = 0; i < AntrianKlinik.daftarAntrian.size(); i++) {
-            System.out.println(AntrianKlinik.daftarAntrian.get(i));
+        Pasien pasien1 = new Pasien();
+        pasien1.setNama("puspa");
+        pasien1.setAlamat("klaten");
+
+        Pasien pasien2 = new Pasien();
+        pasien2.setNama("adi");
+        pasien2.setAlamat("klaten");
+
+       int indeksAntrian = AntrianKlinik.cariAntrian(21, 9, 2018, new Klinik("001", "anak"));
+        if (indeksAntrian > 0) {
+            AntrianKlinik.daftarAntrian.get(indeksAntrian).Mendaftar(pasien1);
+            AntrianKlinik.daftarAntrian.get(indeksAntrian).Mendaftar(pasien2);
         }
-    }
+        for (int i = 0; i < AntrianKlinik.daftarAntrian.get(indeksAntrian).getDaftarPasienAntri().size(); i++) {
+            System.out.println(AntrianKlinik.daftarAntrian.get(indeksAntrian).getDaftarPasienAntri().get(i));
+        }
+}
 }

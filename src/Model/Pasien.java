@@ -244,6 +244,9 @@ public class Pasien {
 
     }
 
+    public String toString(){
+       return Nama+","+Alamat;
+    }
     /**
      * membuat method public String dengan nama SturNomorRekamMedis()
      *
