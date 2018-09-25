@@ -20,6 +20,10 @@ public class TestAntrianKlinik {
         AntrianKlinik.buatAntrian(21, 9, 2018, new Klinik("001", "anak"));
         AntrianKlinik.buatAntrian(21, 9, 2018, new Klinik("002", "saraf"));
         AntrianKlinik.buatAntrian(21, 9, 2018, new Klinik("001", "anak"));
+             for (int i = 0; i < AntrianKlinik.daftarAntrian.size(); i++) {
+            System.out.println(AntrianKlinik.daftarAntrian.get(i));
+        }
+
 
         Pasien pasien1 = new Pasien();
         pasien1.setNama("puspa");
