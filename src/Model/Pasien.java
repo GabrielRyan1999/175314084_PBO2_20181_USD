@@ -131,7 +131,6 @@ public class Pasien {
      * membuat method public void dengan nama setNoRekamMedis()
      *
      * @param NoRM
-     * @throws Exception
      */
     public void setNoRM(String NoRM) {
         //membuat kondisi if NoRM.length() >= 6
