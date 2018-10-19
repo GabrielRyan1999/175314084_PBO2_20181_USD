@@ -336,7 +336,11 @@ public class Pasien {
         }
 
     }
-
+/**
+ * 
+ * @return 
+ */
+    
     public String toString() {
         return NoRM + "\t" + Nama + "\t" + Alamat + "\n";
     }
