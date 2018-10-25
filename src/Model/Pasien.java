@@ -305,30 +305,48 @@ public class Pasien {
     }
 
     public static void bacaDaftarPasien(File file) {
+        FileInputStream fis = null;
         try {
             boolean isnoRM = false;
             boolean isNama = false;
             boolean isAlamat = false;
             String hasilBaca = "";
-            FileInputStream fis = new FileInputStream(file);
+            fis = new FileInputStream(file);
             int dataInt;
-            
+            Pasien temp = new Pasien();
             while ((dataInt = fis.read()) != -1) {
                 if ((char) dataInt != '\n') {
                     if ((char) dataInt != '\t' && isnoRM == false && isNama == false && isAlamat == false) {
-                        hasilBaca = hasilBaca + (char) dataInt;      
+                        hasilBaca = hasilBaca + (char) dataInt;
+                    } else if ((char) dataInt == '\t' && isnoRM == false && isAlamat == false) {
+                        isnoRM = true;
+                        temp.setNoRM(hasilBaca);
+                        hasilBaca = "";
+                    } else if ((char) dataInt != '\t' && isnoRM == true && isNama == false && isAlamat == false) {
+                        hasilBaca = hasilBaca + (char) dataInt;
+                    } else if ((char) dataInt == '\t' && isnoRM == true && isNama == false && isAlamat == false) {
+                        isNama = true;
+                        temp.setNama(hasilBaca);
+                        hasilBaca = "";
+                    } else if ((char) dataInt != '\t' && isnoRM == true && isNama == true && isAlamat == false) {
+                        hasilBaca = hasilBaca + (char) dataInt;
+                    } else if ((char) dataInt == '\t' && isnoRM == true && isNama == true && isAlamat == false) {
+                        isAlamat = true;
+                        temp.setAlamat(hasilBaca);
+                        hasilBaca = "";
                     }
                 } else {
-                    Pasien temp = new Pasien();
-                    temp.setNoRM(hasilBaca);
-                    temp.setNama(hasilBaca);
+                    isAlamat = true;
                     temp.setAlamat(hasilBaca);
                     hasilBaca = "";
                     tambahPasienBaru(temp);
+                    isnoRM = false;
+                    isNama = false;
+                    isAlamat = false;
+                    temp = new Pasien();
                 }
-
             }
-
+            fis.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -336,11 +354,11 @@ public class Pasien {
         }
 
     }
-/**
- * 
- * @return 
- */
-    
+
+    /**
+     *
+     * @return
+     */
     public String toString() {
         return NoRM + "\t" + Nama + "\t" + Alamat + "\n";
     }
